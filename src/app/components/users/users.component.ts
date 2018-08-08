@@ -8,6 +8,16 @@ import { User } from '../../models/User';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
+  user: User = {
+    firstName: '',
+    lastName: '',
+    age: null,
+    address: {
+      street: '',
+      city: '',
+      state: ''
+    }
+  };
   users: User[];
   showExtended: boolean = true;
   loaded: boolean = false;
@@ -66,7 +76,7 @@ export class UsersComponent implements OnInit {
     this.users.push(user);
   }
 
-  fireEvent(e) { 
+  fireEvent(e) {
     // console.log('button event clicked');
     console.log(e.type);
     console.log(e.target.value);
