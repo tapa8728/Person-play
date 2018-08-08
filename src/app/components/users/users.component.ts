@@ -87,7 +87,12 @@ export class UsersComponent implements OnInit {
     if (!valid) {
       console.log('Form is not valid');
     } else {
+      value.isActive = true;
+      value.registered = new Date();
+      value.hide = true;
+
       this.users.unshift(value);
+      this.form.reset();
     }
     console.log('form has been submitted');
   }
