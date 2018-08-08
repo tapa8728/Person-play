@@ -66,16 +66,22 @@ export class UsersComponent implements OnInit {
     this.users.push(user);
   }
 
-  fireEvent(e){ 
-    //console.log('button event clicked');
+  fireEvent(e) { 
+    // console.log('button event clicked');
     console.log(e.type);
+    console.log(e.target.value);
   }
 
-  toggleHide(user: User){
-    if(user.hide === false){
+  toggleHide(user: User) {
+    if(user.hide === false) {
       user.hide = true;
     } else {
       user.hide = false;
     }
+  }
+
+  onSubmit(e){
+    console.log('form has been submitted');
+    e.preventDefault();
   }
 }
