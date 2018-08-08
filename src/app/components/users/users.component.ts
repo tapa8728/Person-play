@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { User } from '../../models/User'; 
+import { User } from '../../models/User';
+import { compileNgModule } from '../../../../node_modules/@angular/compiler';
 
 @Component({
   selector: 'app-users',
@@ -18,6 +19,7 @@ export class UsersComponent implements OnInit {
   loaded: boolean = false;
   enableAdd: boolean = false; // only enable "Add user " if the required fields are filled out. 
   showUserForm: boolean = false; // default dont show the form
+  @ViewChild('userForm') form: any;
 
   constructor() { }
 
@@ -81,8 +83,12 @@ export class UsersComponent implements OnInit {
     }
   }
 
-  onSubmit(e){
+  onSubmit({value, valid}: {value: User, valid: boolean}) {
+    if (!valid) {
+      console.log('Form is not valid');
+    } else {
+      this.users.unshift(value);
+    }
     console.log('form has been submitted');
-    e.preventDefault();
   }
 }

@@ -3,7 +3,7 @@
 <div class="card card-body mb3" *ngIf="showUserForm">
   
   <h3> Enter new user information</h3>
-  <form #userForm="ngForm" (submit)="onSubmit($event)">
+  <form #userForm="ngForm" (submit)="onSubmit(userForm)">
     <div class="form-group">
       <label>FirstName</label>
       <input 
