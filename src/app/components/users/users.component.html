@@ -48,8 +48,22 @@
     </div>
     <div class="form-group">
         <label>Email: </label> <!-- template reference variable -->
-        <input #last (keyup)="0" [(ngModel)]="user.email" type="text" class="form-control" name="email">
-        {{ last.value }}
+        <input 
+          [(ngModel)]="user.email" 
+          [ngClass] = "{'is-invalid': userEmail.errors && userEmail.touched}"
+          type="text" 
+          class="form-control is-invalid" 
+          name="email"
+          #userEmail = "ngModel"
+          required >
+        <div [hidden]="!userEmail.errors?.required"
+          class="invalid-feedback">
+          Email is required.
+        </div>
+        <div [hidden]="!userEmail.errors?.minlength"
+          class="invalid-feedback">
+          Minimum characters are 2. 
+        </div>
     </div>
 
     <!--<div class="form-group">
