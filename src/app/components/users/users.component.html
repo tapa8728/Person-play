@@ -13,7 +13,7 @@
     </div>
     <div class="form-group">
         <label>Age</label>
-        <input type="text" class="form-control" name="age">
+        <input type="number" class="form-control" name="age">
     </div>
     <h5>Address</h5>
     <div class="form-group">
@@ -71,4 +71,7 @@ Adding Events -
 
 ngClass is used to switch between multiple css class names based on the logic of the property value 
 
+2-way data binding:
+We want to bind the input fields in the form to actual properties of the component. 
+So first we create a new "user" property in the compoenent. Why? Because we need a set of defualt values and also a container to pick up each of the input values and then push them collectively in the users array. 
 -->
