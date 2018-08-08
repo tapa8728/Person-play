@@ -3,7 +3,7 @@
 <div class="card card-body mb3" *ngIf="showUserForm">
   
   <h3> Enter new user information</h3>
-  <form (submit)="onSubmit($event)">
+  <form #userForm="ngForm" (submit)="onSubmit($event)">
     <div class="form-group">
       <label>FirstName</label>
       <input 
@@ -19,7 +19,7 @@
         class="invalid-feedback">
         First name is required.
       </div>
-      <div [hidden]="!userFirstName.errors?.min"
+      <div [hidden]="!userFirstName.errors?.minlength"
         class="invalid-feedback">
         Minimum characters are 2. 
       </div>
