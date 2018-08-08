@@ -1,37 +1,37 @@
+
 <button (click)="showUserForm = !showUserForm" class="btn btn-dark mb3">Add User</button>
-<div class="card card-body mb3"  *ngIf="showUserForm">
+<div class="card card-body mb3" *ngIf="showUserForm">
   
   <h3> Enter new user information</h3>
   <form (submit)="onSubmit($event)">
     <div class="form-group">
       <label>FirstName</label>
-      <input [(ngModel)]="user.firstName"  type="text" class="form-control" name="firstName">
+      <input [(ngModel)]="user.firstName" type="text" class="form-control" name="firstName">
       <p>{{ user.firstName }}</p>
     </div>
     <div class="form-group">
       <label>LastName</label> <!-- template reference variable -->
-      <input #last (keyup)="0" type="text" class="form-control" name="lastName">
+      <input #last (keyup)="0" [(ngModel)]="user.lastName" type="text" class="form-control" name="lastName">
       {{ last.value }}
     </div>
     <div class="form-group">
         <label>Age</label>
-        <input type="number" class="form-control" name="age">
+        <input type="number" [(ngModel)]="user.age" class="form-control" name="age">
     </div>
     <h5>Address</h5>
     <div class="form-group">
         <label>Street</label>
-        <input type="text" class="form-control" name="street">
+        <input type="text" [(ngModel)]="user.address.street" class="form-control" name="street">
     </div>
     <div class="form-group">
         <label>City</label>
-        <input type="text" class="form-control" name="city">
+        <input type="text" [(ngModel)]="user.address.city" class="form-control" name="city">
     </div>
     <div class="form-group">
         <label>State</label>
-        <input type="text" class="form-control" name="state">
+        <input type="text" [(ngModel)]="user.address.state" class="form-control" name="state">
     </div>
-     
-    <button (click)="addUser({firstName: 'Mary', lastName: 'Williams',isActive: true })" [disabled]="!enableAdd"  class="btn btn-block mb-3">Add New User</button>
+    <button (click)="addUser()" [disabled]="user.firstName == '' || user.lastname == '' "  class="btn btn-block mb-3">Add New User</button>
   </form>
 
 </div>

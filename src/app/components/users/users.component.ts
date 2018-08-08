@@ -21,7 +21,7 @@ export class UsersComponent implements OnInit {
   users: User[];
   showExtended: boolean = true;
   loaded: boolean = false;
-  enableAdd: boolean = true;
+  enableAdd: boolean = false; // only enable "Add user " if the required fields are filled out. 
   showUserForm: boolean = false; // default dont show the form
 
   constructor() { }
@@ -72,8 +72,8 @@ export class UsersComponent implements OnInit {
       this.loaded = true;
   }
 
-  addUser(user: User) {
-    this.users.push(user);
+  addUser() {
+    this.users.unshift(this.user);  // this.user is the container that has picked up the input values.
   }
 
   fireEvent(e) {
