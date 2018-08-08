@@ -25,7 +25,7 @@ export class UsersComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.users = this.dataService.getUsers();
+    this.users = this.dataService.getUsers(); // calling the service to get the data
     this.loaded = true;
   }
 
@@ -66,7 +66,7 @@ export class UsersComponent implements OnInit {
       value.registered = new Date();
       value.hide = true;
 
-      this.users.unshift(value);
+      this.dataService.addUser(value); // calling the service to push data into it. 
       this.form.reset();
     }
     console.log('form has been submitted');

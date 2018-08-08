@@ -36,7 +36,12 @@ export class DataService {
   }
 
   getUsers(): User[] {
-    console.log('called from data service.');
+    console.log('[getUsers] called from data service.');
     return this.users;
+  }
+
+  addUser(user: User){
+    console.log('[addUsers] called from data service');
+    this.users.unshift(user);
   }
 }
