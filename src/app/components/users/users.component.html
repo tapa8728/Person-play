@@ -1,6 +1,6 @@
-<button (click)="showUserForm != showUserForm" class="btn btn-dark mb3"></button>
+<button (click)="showUserForm =  !showUserForm" class="btn btn-dark mb3">Show Form</button>
 <div *ngIf="showUserForm">
-  we are showing form. 
+  <p>we are showing form. </p>
 </div>
 
 <h2>Users</h2>
