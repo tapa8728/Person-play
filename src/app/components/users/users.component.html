@@ -9,8 +9,9 @@
       <p>{{ user.firstName }}</p>
     </div>
     <div class="form-group">
-      <label>LastName</label>
-      <input type="text" class="form-control" name="lastName">
+      <label>LastName</label> <!-- template reference variable -->
+      <input #last (keyup)="0" type="text" class="form-control" name="lastName">
+      {{ last.value }}
     </div>
     <div class="form-group">
         <label>Age</label>
@@ -84,8 +85,14 @@ So first we create a new "user" property in the compoenent. Why? Because we need
 - for the firstname input field we added [(ngModel)]="user.firstName"  .. indicating that dump the data that the user writes into user.fistname .. and we created the user container for that exact purpose. 
 
 <input [(ngModel)]="user.firstName" (keydown)="fireEvent($event)" type="text" class="form-control" name="firstName">
+Example:
+========
+<input [(ngModel)]="user.firstName"  type="text" class="form-control" name="firstName">
+<p>{{ user.firstName }}</p>  ... string interpolation
 
-get user input from template variable
+This indicates that 2-way binding is working. 
+
+get user input from template variable : template reference variable 
 =====================================
 @Component({
   selector: 'app-loop-back',
@@ -95,12 +102,9 @@ get user input from template variable
   `
 })
 export class LoopbackComponent { }
+eg: <label>LastName</label> ... template reference variable 
+<input #last (keyup)="0" type="text" class="form-control" name="lastName">
+{{ last.value }}
 
-Example:
-========
-<input [(ngModel)]="user.firstName"  type="text" class="form-control" name="firstName">
-<p>{{ user.firstName }}</p>  ... string interpolation
-
-This indicates that 2-way binding is working. 
 
 -->
