@@ -5,11 +5,11 @@
   <form (submit)="onSubmit($event)">
     <div class="form-group">
       <label>FirstName</label>
-      <input (keydown)="fireEvent($event)" type="text" class="form-control" name="firstName">
+      <input [(ngModel)]="user.firstName"  type="text" class="form-control" name="firstName">
     </div>
     <div class="form-group">
       <label>LastName</label>
-      <input (keyup)="fireEvent($event)" type="text" class="form-control" name="lastName">
+      <input type="text" class="form-control" name="lastName">
     </div>
     <div class="form-group">
         <label>Age</label>
@@ -79,5 +79,8 @@ So first we create a new "user" property in the compoenent. Why? Because we need
 - syntax [()] :  the "[" box brackets mean binding from component to template eg: property binding, class binding
                  the "(" means binding from the template to the component or class. 
   Since ngModel is used for 2-way data binding, we use a complete notation of "[()]"      
+- for the firstname input field we added [(ngModel)]="user.firstName"  .. indicating that dump the data that the user writes into user.fistname .. and we created the user container for that exact purpose. 
+
+<input [(ngModel)]="user.firstName" (keydown)="fireEvent($event)" type="text" class="form-control" name="firstName">
 
 -->
