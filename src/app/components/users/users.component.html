@@ -8,14 +8,20 @@
       <label>FirstName</label>
       <input 
         [(ngModel)]="user.firstName" 
+        [ngClass]="{'is-invalid':userFirstName.errors && userFirstName.touched}" 
         type="text" 
         class="form-control is-invalid" 
         name="firstName"
         #userFirstName = "ngModel"
         required 
         minlength="2">
-      <div class="invalid-feedback">
+      <div [hidden]="!userFirstName.errors?.required"   
+        class="invalid-feedback">
         First name is required.
+      </div>
+      <div [hidden]="!userFirstName.errors?.min"
+        class="invalid-feedback">
+        Minimum characters are 2. 
       </div>
       <!-- <p>{{ user.firstName }}</p> -->
     </div>
@@ -47,7 +53,7 @@
         <label>State</label>
         <input type="text" [(ngModel)]="user.address.state" class="form-control" name="state">
     </div> -->
-    <button [disabled]="! userForm.form.valid"  class="btn btn-block mb-3">Add New User</button>
+    <button [disabled]="! userForm.form.valid"  class="btn btn-block btn-light mb-3">Add New User</button>
   </form>
 
 </div>
