@@ -55,14 +55,15 @@
           class="form-control is-invalid" 
           name="email"
           #userEmail = "ngModel"
-          required >
+          required 
+          pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
         <div [hidden]="!userEmail.errors?.required"
           class="invalid-feedback">
           Email is required.
         </div>
-        <div [hidden]="!userEmail.errors?.minlength"
+        <div [hidden]="!userEmail.errors?.pattern"
           class="invalid-feedback">
-          Minimum characters are 2. 
+          Invalid format.
         </div>
     </div>
 
