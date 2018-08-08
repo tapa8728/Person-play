@@ -16,7 +16,6 @@ export class UsersComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-   
       this.users = [
         {
           firstName: 'John',
@@ -28,7 +27,8 @@ export class UsersComponent implements OnInit {
             state: 'MA'
           },
           isActive: true,
-          registered: new Date('01/02/2018 08:30:00')
+          registered: new Date('01/02/2018 08:30:00'),
+          hide: true
         },
         {
           firstName: 'Kevin',
@@ -40,7 +40,8 @@ export class UsersComponent implements OnInit {
             state: 'MA'
           },
           isActive: false,
-          registered: new Date('03/11/2017 06:20:00')
+          registered: new Date('03/11/2017 06:20:00'),
+          hide: true
         },
         {
           firstName: 'Karen',
@@ -52,7 +53,8 @@ export class UsersComponent implements OnInit {
             state: 'FL'
           },
           isActive: true,
-          registered: new Date('11/02/2016 10:30:00')
+          registered: new Date('11/02/2016 10:30:00'),
+          hide: true
         }
       ];
 
@@ -62,5 +64,17 @@ export class UsersComponent implements OnInit {
   addUser(user: User) {
     this.users.push(user);
   }
-  
+
+  fireEvent(e){ 
+    //console.log('button event clicked');
+    console.log(e.type);
+  }
+
+  toggleHide(user: User){
+    if(user.hide === false){
+      user.hide = true;
+    } else {
+      user.hide = false;
+    }
+  }
 }
