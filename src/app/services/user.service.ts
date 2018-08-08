@@ -3,7 +3,7 @@ import { User} from '../models/User';
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class UserService {
   users: User[];
 
   constructor() { 

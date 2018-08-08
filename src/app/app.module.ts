@@ -7,7 +7,10 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
 import { UsersComponent } from './components/users/users.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { DataService } from './services/data.service';
+
+import { PostService } from './services/post.service';
+import { UserService } from './services/user.service';
+import { PostsComponent } from './components/posts/posts.component';
 
 
 @NgModule({
@@ -15,13 +18,14 @@ import { DataService } from './services/data.service';
     AppComponent,
     UserComponent,
     UsersComponent,
-    NavbarComponent
+    NavbarComponent,
+    PostsComponent
   ],
   imports: [
     FormsModule,
     BrowserModule
   ],
-  providers: [DataService ],
+  providers: [UserService, PostService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

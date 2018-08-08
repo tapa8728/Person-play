@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { User } from '../../models/User';
-import { compileNgModule } from '../../../../node_modules/@angular/compiler';
-import { DataService } from "../../services/data.service";
+import { compileNgModule } from '@angular/compiler';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-users',
@@ -22,10 +22,10 @@ export class UsersComponent implements OnInit {
   showUserForm: boolean = false; // default dont show the form
   @ViewChild('userForm') form: any;
 
-  constructor(private dataService: DataService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.users = this.dataService.getUsers(); // calling the service to get the data
+    this.users = this.userService.getUsers(); // calling the service to get the data
     this.loaded = true;
   }
 
@@ -66,16 +66,20 @@ export class UsersComponent implements OnInit {
       value.registered = new Date();
       value.hide = true;
 
-      this.dataService.addUser(value); // calling the service to push data into it. 
+      this.userService.addUser(value); // calling the service to push data into it. 
       this.form.reset();
     }
     console.log('form has been submitted');
   }
-}
 
+}
 /*
 DataService:
 In this case, we are using this service to get a bumch of data. 
 Now we are hardcoding the data and previous we had used a users array to store it.
- but now we are using a separate DataService class to pull in that data. 
+but now we are using a separate DataService class to pull in that data. 
+
+Observable:
+These are data streams that you can subscribe to can cause an event to be fired when something in the observable is updated. 
+
 */
