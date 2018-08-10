@@ -11,7 +11,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PostService } from './services/post.service';
 import { UserService } from './services/user.service';
 import { PostsComponent } from './components/posts/posts.component';
-
+// right click menu
+import {ShContextMenuModule} from 'ng2-right-click-menu';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PostsComponent } from './components/posts/posts.component';
     PostsComponent
   ],
   imports: [
+    ShContextMenuModule,
     FormsModule,
     BrowserModule
   ],

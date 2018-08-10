@@ -50,6 +50,10 @@ export class UsersComponent implements OnInit {
     console.log(e.target.value);
   }
 
+  onClick(e){
+    console.log('right click or regular clikc');
+  }
+
   toggleHide(user: User) {
     if(user.hide === false) {
       user.hide = true;

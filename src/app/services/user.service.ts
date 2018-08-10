@@ -6,7 +6,7 @@ import { User} from '../models/User';
 export class UserService {
   users: User[];
 
-  constructor() { 
+  constructor() {
     this.users = [
       {
         firstName: 'John',

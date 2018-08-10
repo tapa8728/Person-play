@@ -1,8 +1,20 @@
+<sh-context-menu #menu>
+  <ng-template shContextMenuItem let-data (click)="onClick($event)">
+    <div>
+      Menu Item - 1
+    </div>
+    <div>
+      Menu Item - 2
+    </div>
+  </ng-template>
+</sh-context-menu>
+
+
 
 <button (click)="showUserForm = !showUserForm" class="btn btn-dark mb3">Add User</button>
 <div class="card card-body mb3" *ngIf="showUserForm">
   
-  <h3> Enter new user information</h3>
+  <h3 > Enter new user information</h3>
   <form #userForm="ngForm" (submit)="onSubmit(userForm)">
     <div class="form-group">
       <label>FirstName</label>
@@ -170,3 +182,5 @@ is.
 Complete form validation is required for the adduser button to be activated. 
 <button [disabled]="! userForm.form.valid"  class="btn btn-block mb-3">Add New User</button>
 -->
+
+<div [shAttachMenu]="menu" [shMenuData]="data"> Right click me</div>
